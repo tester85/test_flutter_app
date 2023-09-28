@@ -5,7 +5,7 @@ import 'package:test_app/model/customer.dart';
 class CustomerDetailReviewPage extends StatefulWidget {
   final Customer customer;
 
-  CustomerDetailReviewPage({required this.customer});
+  CustomerDetailReviewPage({super.key, required this.customer});
 
   @override
   _CustomerDetailReviewPageState createState() =>

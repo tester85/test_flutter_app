@@ -1,8 +1,10 @@
+
 import 'package:flutter/material.dart';
+import 'package:test_app/screen/detail_notification.dart';
 import 'package:test_app/widget/square_button.dart';
 
 class CustomerDetailsPage extends StatelessWidget {
-  final String customerName;
+   final String customerName;
 
   const CustomerDetailsPage({super.key, required this.customerName});
 
@@ -44,14 +46,19 @@ class CustomerDetailsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         SquareButton(
-                          icon: Icons.arrow_back,
+                          // Text: Icons.details_rounded,
+                          text: 'See the details',
                           onPressed: () {
+                            const NotificationDetail notification =
+                              NotificationDetail(title: 'Details', description: 'description example');
+                            notification.showDescriptionDialog(context);
                             // Handle the back button press here.
-                            Navigator.pop(context); // Example: Navigate back
+                              // Example: Navigate back
                           },
                         ), // Add spacing between buttons
                         SquareButton(
-                          icon: Icons.notifications,
+                          text: 'Rate your exp',
+                          // icon: Icons.notifications,
                           onPressed: () {
                             // Handle the notification button press here.
                             // You can display a notification window or perform any action.

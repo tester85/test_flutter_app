@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class SquareButton extends StatelessWidget {
-  final IconData icon;
+  final String text;
   final Function()? onPressed;
 
-  SquareButton({required this.icon, required this.onPressed});
+   SquareButton({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +17,16 @@ class SquareButton extends StatelessWidget {
           color: Colors.orange, // Button background color
           borderRadius: BorderRadius.circular(10), // Button border radius
         ),
-        child: Icon(
-          icon,
-          size: 25, // Icon size
-          color: Colors.white, // Icon color
+        child: Center(
+            child: Text(
+            text, style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+          ),
+          )
         ),
+
       ),
     );
   }
