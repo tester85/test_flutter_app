@@ -46,7 +46,7 @@ class CustomerDetailsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         SquareButton(
-                          // Text: Icons.details_rounded,
+                          icon: Icons.details_rounded,
                           text: 'See the details',
                           onPressed: () {
                             const NotificationDetail notification =
@@ -57,6 +57,7 @@ class CustomerDetailsPage extends StatelessWidget {
                           },
                         ), // Add spacing between buttons
                         SquareButton(
+                          icon: Icons.rate_review,
                           text: 'Rate your exp',
                           // icon: Icons.notifications,
                           onPressed: () {
