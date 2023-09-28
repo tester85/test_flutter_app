@@ -6,11 +6,10 @@ class Customer {
 }
 
 List<Customer> customers = [
-  Customer(name: "Viva auto shop", rating: 4.5),
-  Customer(name: "Car repairs 24/7", rating: 3.0),
-  Customer(name: "West Coast Customs", rating: 3.0),
-  Customer(name: "RailCoat Repairs", rating: 0.0),
-  Customer(name: "Jhonson's", rating: 3.0),
-  Customer(name: "Dog Care", rating: 5.0),
+  Customer(name: "AT&T", rating: 4.5),
+  Customer(name: "Samnsung Co.", rating: 3.0),
+  Customer(name: "Apple Inc", rating: 3.0),
+  Customer(name: "Toon Network", rating: 0.0),
+  Customer(name: "Flower's Amarillis", rating: 3.0),
   // Add more customer data as needed.
 ];

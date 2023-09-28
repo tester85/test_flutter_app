@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/model/customer.dart';
+import 'package:test_app/model/service_provider.dart';
 import 'package:test_app/screen/customer_details.dart';
+
 import '../widget/customer_list_item.dart';
 
-class CustomerList extends StatelessWidget {
-  final List<Customer> customerP;
+class ServicePList extends StatelessWidget {
+  final List<ServiceP> serviceP;
 
-  const CustomerList({super.key, required this.customerP});
+  const ServicePList({super.key, required this.serviceP});
+
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: customerP.length,
+      itemCount: serviceP.length,
       itemBuilder: (context, index) {
-        final customer = customerP[index];
+        final customer = serviceP[index];
         return GestureDetector(
           onTap: () {
             // Navigate to the customer details page when tapped

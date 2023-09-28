@@ -1,6 +1,9 @@
+
 import 'package:flutter/material.dart';
-import 'package:test_app/model/customer.dart';
-import 'package:test_app/listview/customer_list.dart';
+import 'package:test_app/screen/customer_sc.dart';
+import 'package:test_app/screen/home_page.dart';
+import 'package:test_app/screen/selector_screen.dart';
+import 'package:test_app/screen/service_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,13 +39,14 @@ class MyApp extends StatelessWidget {
           textTheme: ButtonTextTheme.accent,)
       ),
       // home: const Rate(title: 'Flutter Test'),
-      home: Scaffold(
-        backgroundColor: Colors.grey[500],
-        appBar: AppBar(
-          title: const Text('Car Mechanics' ),),
-        body: CustomerList(customers: customers),
-      ),
-
+      // home: const HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(), // Define the initial route
+        '/select': (context) => const SelectRol(), // Define the second screen route
+        '/serviceP': (context) => const ServiceProvider(), // Define the second screen route
+        '/customer': (context) => const CustomerSc(), // Define the second screen route
+      },
     );
   }
 }

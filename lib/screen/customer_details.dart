@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:test_app/screen/detail_notification.dart';
+import 'package:test_app/widget/detail_notification.dart';
 import 'package:test_app/widget/square_button.dart';
 
 class CustomerDetailsPage extends StatelessWidget {
