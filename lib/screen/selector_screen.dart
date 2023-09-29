@@ -1,6 +1,5 @@
 
-import 'package:flutter/material.dart';
-import 'package:test_app/widget/detail_notification.dart';
+import 'package:flutter/material.dart'; 
 import 'package:test_app/widget/square_button.dart';
 
 class SelectRol extends StatelessWidget {

@@ -32,8 +32,6 @@ class SquareButton extends StatelessWidget {
             ),
           ],
         )
-
-
       ),
     );
   }

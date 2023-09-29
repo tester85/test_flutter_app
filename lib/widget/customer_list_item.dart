@@ -20,7 +20,7 @@ class CustomerListItem extends StatelessWidget {
           initialRating: rating,
           minRating: 1,
           direction: Axis.horizontal,
-          allowHalfRating: true,
+          allowHalfRating: false,
           itemCount: 5,
           itemPadding: const EdgeInsets.symmetric(horizontal: 2.0),
           itemBuilder: (context, _) => const Icon(
