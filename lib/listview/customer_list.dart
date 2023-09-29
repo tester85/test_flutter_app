@@ -33,13 +33,5 @@ class CustomerList extends StatelessWidget {
         );
       },
     );
-
-
   }
 }
-
-
-//return CustomerListItem(
-//   name: customer.name,
-//   rating: customer.rating,
-// );

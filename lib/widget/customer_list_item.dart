@@ -29,6 +29,7 @@ class CustomerListItem extends StatelessWidget {
           ),
           onRatingUpdate: (rating) {
             // Handle rating updates if needed.
+
           },
         ),
       ),
