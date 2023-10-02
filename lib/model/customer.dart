@@ -1,15 +1,17 @@
 class Customer {
+  final int id;
   final String name;
-  late final double rating;
+  late final int rating;
+  final bool isCustomer;
 
-  Customer({required this.name, required this.rating});
+  Customer({required this.id, required this.isCustomer ,required this.name, required this.rating});
 }
-
-List<Customer> customers = [
-  Customer(name: "AT&T", rating: 4.5),
-  Customer(name: "Samnsung Co.", rating: 3.0),
-  Customer(name: "Apple Inc", rating: 3.0),
-  Customer(name: "Toon Network", rating: 0.0),
-  Customer(name: "Flower's Amarillis", rating: 3.0),
-  // Add more customer data as needed.
-];
+//
+// List<Customer> customers = [
+//   Customer(name: "AT&T", rating: 4),
+//   Customer(name: "Samnsung Co.", rating: 3),
+//   Customer(name: "Apple Inc", rating: 3),
+//   Customer(name: "Toon Network", rating: 0),
+//   Customer(name: "Flower's Amarillis", rating: 3),
+//   // Add more customer data as needed.
+// ];

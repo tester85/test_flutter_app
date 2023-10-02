@@ -14,7 +14,7 @@ class CustomerDetailReviewPage extends StatefulWidget {
 
 class _CustomerDetailReviewPageState
     extends State<CustomerDetailReviewPage> {
-  double newRating = 0.0;
+  double newRating = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class _CustomerDetailReviewPageState
             ElevatedButton(
               onPressed: () {
                 // Update the rating for the customer
-                widget.customer.rating = newRating;
+                widget.customer.rating = newRating as int;
                 Navigator.pop(context); // Return to the previous page
               },
               child: const Text('Save Rating'),
