@@ -38,10 +38,10 @@ class SQLHelper {
     return id;
   }
 
-  static Future<int> update(int id, String name, int rating) async {
+  static Future<int> update(String name, int rating) async {
     final db = await SQLHelper.db();
     final data = {'name': name, 'rating_value': rating, 'createdAt': DateTime.now().toString()};
-    final result = await db.update('rating', data, where:"id =?", whereArgs:[id]);
+    final result = await db.update('rating', data, where:"name =?", whereArgs:[name]);
     return result;
   }
 
@@ -89,10 +89,10 @@ List<Customer> customers = [
 ];
 
 List<ServiceP> servProviders = [
-  ServiceP(id: 1,name: "Viva auto shop", rating: 4, isCustomer:0),
-  ServiceP(id: 2,name: "Car repairs 24/7", rating: 3, isCustomer:0),
-  ServiceP(id: 3,name: "West Coast Customs", rating: 3, isCustomer:0),
-  ServiceP(id: 4,name: "RailCoat Repairs", rating: 0, isCustomer:0),
-  ServiceP(id: 5,name: "Jhonson's", rating: 3, isCustomer:0),
+  ServiceP(id: 6,name: "Viva auto shop", rating: 4, isCustomer:0),
+  ServiceP(id: 7,name: "Car repairs 24/7", rating: 3, isCustomer:0),
+  ServiceP(id: 8,name: "West Coast Customs", rating: 3, isCustomer:0),
+  ServiceP(id: 9,name: "RailCoat Repairs", rating: 0, isCustomer:0),
+  ServiceP(id: 10,name: "Jhonson's", rating: 3, isCustomer:0),
   // Add more customer data as needed.
 ];
