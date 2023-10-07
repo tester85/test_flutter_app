@@ -34,7 +34,7 @@ class SQLHelper {
       'createdAt': DateTime.now().toString()};
 
     final id = await db.insert('rating', data,
-        conflictAlgorithm: sql.ConflictAlgorithm.replace);
+        conflictAlgorithm: sql.ConflictAlgorithm.ignore);
     return id;
   }
 
