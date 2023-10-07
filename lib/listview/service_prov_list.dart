@@ -30,7 +30,7 @@ class ServicePList extends StatelessWidget {
           },
           child: CustomerListItem(
             name: customer.name,
-            rating: customer.rating,
+            rating: customer.rating.toDouble(),
           ),
         );
       },

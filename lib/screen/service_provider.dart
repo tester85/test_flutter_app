@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../database/sql_helper.dart';
 import '../listview/service_prov_list.dart';
-import '../model/service_provider.dart';
 
 class ServiceProvider extends StatelessWidget {
   const ServiceProvider({super.key});

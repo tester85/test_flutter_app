@@ -1,16 +1,45 @@
 
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:sqflite/sqflite.dart' as sql;
+import 'package:test_app/database/sql_helper.dart';
+import 'package:test_app/model/customer.dart';
+import 'package:test_app/model/service_provider.dart';
 import 'package:test_app/screen/customer_sc.dart';
 import 'package:test_app/screen/home_page.dart';
 import 'package:test_app/screen/selector_screen.dart';
 import 'package:test_app/screen/service_provider.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  final database = await SQLHelper.db();
+
+  for(Customer c in customers){
+    final data = {
+      'id': c.id,
+      'name': c.name,
+      'rating_value': c.rating,
+      'is_customer':c.isCustomer,
+      'createdAt': DateTime.now().toString()};
+    await database.insert('rating', data, conflictAlgorithm: sql.ConflictAlgorithm.replace);
+  }
+  for(ServiceP sp in servProviders){
+    final data = {
+      'id': sp.id,
+      'name': sp.name,
+      'rating_value': sp.rating,
+      'is_customer':sp.isCustomer,
+      'createdAt': DateTime.now().toString()};
+    await database.insert('rating', data, conflictAlgorithm: sql.ConflictAlgorithm.replace);
+  }
+
+  print(SQLHelper.countItem(database).toString());
+  runApp(MyApp(database));
+
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp(Database database, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +76,7 @@ class MyApp extends StatelessWidget {
         '/serviceP': (context) => const ServiceProvider(), // Define the second screen route
         '/customer': (context) => const CustomerSc(), // Define the second screen route
       },
+
     );
   }
 }
