@@ -6,7 +6,7 @@ import 'package:test_app/database/sql_helper.dart';
 import 'package:test_app/model/customer.dart';
 import 'package:test_app/model/service_provider.dart';
 import 'package:test_app/screen/customer_sc.dart';
-import 'package:test_app/screen/home_page.dart';
+import 'package:test_app/screen/home_screen.dart';
 import 'package:test_app/screen/selector_screen.dart';
 import 'package:test_app/screen/service_provider.dart';
 
@@ -14,6 +14,7 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   final database = await SQLHelper.db();
 
+  // initialize db elements with data
   for(Customer c in customers){
     final data = {
       'id': c.id,
@@ -32,10 +33,7 @@ void main() async{
       'createdAt': DateTime.now().toString()};
     await database.insert('rating', data, conflictAlgorithm: sql.ConflictAlgorithm.replace);
   }
-
-  print(SQLHelper.countItem(database).toString());
   runApp(MyApp(database));
-
 }
 
 class MyApp extends StatelessWidget {
