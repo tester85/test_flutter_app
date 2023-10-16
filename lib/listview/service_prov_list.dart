@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/model/service_provider.dart';
 import 'package:test_app/screen/customer_details.dart';
+import 'package:test_app/widget/service_list_item.dart';
 
-import '../widget/customer_list_item.dart';
 
 class ServicePList extends StatelessWidget {
   final List<ServiceP> serviceP;
@@ -28,7 +28,7 @@ class ServicePList extends StatelessWidget {
               ),
             );
           },
-          child: CustomerListItem(
+          child: ServiceListItem(
             name: customer.name,
             rating: customer.rating.toDouble(),
           ),

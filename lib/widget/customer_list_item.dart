@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:test_app/database/sql_helper.dart';
+import 'package:test_app/widget/three_btn_row.dart';
 
 class CustomerListItem extends StatelessWidget {
   final String name;
   final double rating;
 
   const CustomerListItem({super.key, required this.name, required this.rating});
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,14 @@ class CustomerListItem extends StatelessWidget {
           onRatingUpdate: (rating) {
             print("$name got a $rating stars");
             SQLHelper.update(name, rating.toInt());
-
+            showModalBottomSheet(context: context, builder: (BuildContext context){
+              if(rating > 3){
+                return const ThreeButtonRow(buttonLabels: ['First Label','Second Label','Third label'],);
+              }
+              else {
+                return const ThreeButtonRow(buttonLabels: ['Fourth Label','Fifth Label','Sixth label'],);
+              }
+            });
           },
         ),
       ),

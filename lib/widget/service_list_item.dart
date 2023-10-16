@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:test_app/database/sql_helper.dart';
+import 'package:test_app/widget/three_btn_row.dart';
 
 class ServiceListItem extends StatelessWidget {
   final String name;
@@ -32,7 +33,14 @@ class ServiceListItem extends StatelessWidget {
             // Handle rating updates if needed.
             print("$name got a $rating stars");
             SQLHelper.update(name, rating.toInt());
-
+            showModalBottomSheet(context: context, builder: (BuildContext context){
+              if(rating > 3){
+                return const ThreeButtonRow(buttonLabels: ['Fast Response','Good job','is Good Price'],);
+              }
+              else {
+                return const ThreeButtonRow(buttonLabels: ['Slow Response','Bad Job','Expensive'],);
+              }
+            });
           },
         ),
       ),
