@@ -1,10 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqflite.dart' as sql;
-import 'package:test_app/database/sql_helper.dart';
-import 'package:test_app/model/customer.dart';
-import 'package:test_app/model/service_provider.dart';
 import 'package:test_app/screen/customer_sc.dart';
 import 'package:test_app/screen/home_screen.dart';
 import 'package:test_app/screen/selector_screen.dart';
@@ -12,32 +7,13 @@ import 'package:test_app/screen/service_provider.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  final database = await SQLHelper.db();
 
-  // initialize db elements with data
-  for(Customer c in customers){
-    final data = {
-      'id': c.id,
-      'name': c.name,
-      'rating_value': c.rating,
-      'is_customer':c.isCustomer,
-      'createdAt': DateTime.now().toString()};
-    await database.insert('rating', data, conflictAlgorithm: sql.ConflictAlgorithm.replace);
-  }
-  for(ServiceP sp in servProviders){
-    final data = {
-      'id': sp.id,
-      'name': sp.name,
-      'rating_value': sp.rating,
-      'is_customer':sp.isCustomer,
-      'createdAt': DateTime.now().toString()};
-    await database.insert('rating', data, conflictAlgorithm: sql.ConflictAlgorithm.replace);
-  }
-  runApp(MyApp(database));
+  //-----------------------------------------------------------
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp(Database database, {super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

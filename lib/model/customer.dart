@@ -1,8 +1,6 @@
-class Customer {
-  final int id;
-  final String name;
-  late final int rating;
-  final int isCustomer;
+import 'package:test_app/model/rating.dart';
 
-  Customer({required this.id, required this.isCustomer ,required this.name, required this.rating});
+class Customer extends Rating{
+  Customer({required super.id, required super.isCustomer, required super.name, required super.rating});
+
 }

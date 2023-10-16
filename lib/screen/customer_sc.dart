@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/database/sql_helper.dart';
+import 'package:test_app/database/firestore_service.dart';
 import 'package:test_app/listview/customer_list.dart';
 import 'package:test_app/mapper/Mapper.dart';
 
@@ -15,11 +15,11 @@ class _CustomerScState extends State<CustomerSc>{
   List<Map<String,dynamic>> rating = [];
 
   Future<void> _refreshRating() async {
-    final List<Map<String, dynamic>> data = await SQLHelper.getItems(1);
-    print("Numero de elementos -> ${data.length}");
+    final List<Map<String, dynamic>>? data = await FireStoreService().getItems(1);
+    print("Numero de elementos -> ${data?.length}");
     // return data;
     setState(() {
-      rating = data;
+      rating = data!;
     });
   }
 

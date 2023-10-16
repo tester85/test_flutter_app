@@ -1,9 +1,6 @@
-class ServiceP {
-  final int id;
-  final String name;
-  late final int rating;
-  final int isCustomer;
+import 'package:test_app/model/rating.dart';
 
-  ServiceP({required this.id, required this.isCustomer ,required this.name, required this.rating});
+class ServiceP extends Rating {
+  ServiceP({required super.id, required super.isCustomer, required super.name, required super.rating});
 
 }

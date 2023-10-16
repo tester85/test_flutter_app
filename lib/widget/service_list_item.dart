@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:test_app/database/sql_helper.dart';
+import 'package:test_app/database/firestore_service.dart';
 
 class ServiceListItem extends StatelessWidget {
   final String name;
@@ -28,10 +28,11 @@ class ServiceListItem extends StatelessWidget {
             Icons.health_and_safety,
             color: Colors.green,
           ),
-          onRatingUpdate: (rating) {
+          onRatingUpdate: (rating) async {
             // Handle rating updates if needed.
             print("$name got a $rating stars");
-            SQLHelper.update(name, rating.toInt());
+            Map<String, dynamic>? item = await FireStoreService().findItemByName(name);
+            FireStoreService().updateItem(name, item!);
 
           },
         ),

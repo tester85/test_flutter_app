@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/database/firestore_service.dart';
 import 'package:test_app/mapper/Mapper.dart';
 
-import '../database/sql_helper.dart';
 import '../listview/service_prov_list.dart';
 
 class ServiceProvider extends StatefulWidget {
@@ -15,11 +15,11 @@ class _ServiceScState extends State<ServiceProvider>{
   List<Map<String,dynamic>> rating = [];
 
   Future<void> _refreshRating() async {
-    final List<Map<String, dynamic>> data = await SQLHelper.getItems(0);
-    print("Numero de elementos Servicio -> ${data.length}");
+    final List<Map<String, dynamic>>? data = await FireStoreService().getItems(0);
+    print("Numero de elementos Servicio -> ${data?.length}");
     // return data;
     setState(() {
-      rating = data;
+      rating = data!;
     });
   }
 
