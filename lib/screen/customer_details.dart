@@ -1,15 +1,21 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test_app/provider/camera_provider.dart';
+import 'package:test_app/screen/camera_sc.dart';
 import 'package:test_app/widget/detail_notification.dart';
 import 'package:test_app/widget/square_button.dart';
 
+
 class CustomerDetailsPage extends StatelessWidget {
    final String customerName;
+
 
   const CustomerDetailsPage({super.key, required this.customerName});
 
   @override
   Widget build(BuildContext context) {
+    final cameras = Provider.of<CameraProvider>(context).cameras;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mechanic Details'),
@@ -19,11 +25,12 @@ class CustomerDetailsPage extends StatelessWidget {
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const Center(
-                  child: CircleAvatar(
-                    radius: 40.0,
-                    backgroundImage: AssetImage('assets/user_default.png'),
-                  ),
+                 Center(
+                   child: CameraScreen(camera: cameras.first),
+            // child: CircleAvatar(
+                  //   radius: 40.0,
+                  //   backgroundImage: AssetImage('assets/user_default.png'),
+                  // ),
                 ),
                 const SizedBox(
                   height: 30.0,

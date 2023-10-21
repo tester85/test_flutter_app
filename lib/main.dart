@@ -1,10 +1,13 @@
 
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqflite.dart' as sql;
 import 'package:test_app/database/sql_helper.dart';
 import 'package:test_app/model/customer.dart';
 import 'package:test_app/model/service_provider.dart';
+import 'package:test_app/provider/camera_provider.dart';
 import 'package:test_app/screen/customer_sc.dart';
 import 'package:test_app/screen/home_page.dart';
 import 'package:test_app/screen/selector_screen.dart';
@@ -33,9 +36,12 @@ void main() async{
     await database.insert('rating', data, conflictAlgorithm: sql.ConflictAlgorithm.replace);
   }
 
-  print(SQLHelper.countItem(database).toString());
-  runApp(MyApp(database));
-
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => CameraProvider(),
+      child: MyApp(database),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

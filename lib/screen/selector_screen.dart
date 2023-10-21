@@ -1,5 +1,6 @@
 
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+import 'package:test_app/widget/icon_text_field_widget.dart';
 import 'package:test_app/widget/square_button.dart';
 
 class SelectRol extends StatelessWidget {
@@ -42,10 +43,20 @@ class SelectRol extends StatelessWidget {
                           },
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
-              ])),
+                const SizedBox(
+                  height: 30.0,
+                ),
+                Column(
+                    children: <Widget>[
+                      MyTextFieldWidget(),
+                    ]),
+        ]
+
+      ),
+      )
     );
   }
 }
